@@ -1,0 +1,457 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  overflow:hidden;
+  font-family:"Microsoft YaHei";
+}
+
+.home-page{
+  width:100vw;
+  height:100vh;
+  background:linear-gradient(#7ed6ff,#dff9fb);
+}
+
+.home-container{
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.main-title{
+  font-size:72px;
+  color:#fff;
+  text-shadow:0 5px 15px rgba(0,0,0,0.4);
+  margin-bottom:20px;
+}
+
+.main-well{
+  width:700px;
+  max-width:90vw;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+
+.button-group{
+  margin-top:40px;
+  display:flex;
+  gap:40px;
+}
+
+.view-btn{
+  width:260px;
+  height:100px;
+  border:none;
+  border-radius:30px;
+  font-size:40px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.frog-btn{
+  background:#2ecc71;
+}
+
+.bird-btn{
+  background:#3498db;
+}
+
+.view-btn:hover{
+  transform:scale(1.1);
+}
+
+.jumping{
+  animation:jump .5s infinite;
+}
+
+@keyframes jump{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
+}
+
+.flying{
+  animation:fly .5s infinite;
+}
+
+@keyframes fly{
+  0%{transform:translateX(0)}
+  50%{transform:translateX(15px)}
+  100%{transform:translateX(0)}
+}
+
+.frog-page{
+  background:#111;
+}
+
+.frog-scene{
+  width:100vw;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.well-wall{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url('../images/青蛙第一视角.png') center/cover no-repeat;
+  filter:brightness(0.7);
+}
+
+.sky-hole{
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  overflow:hidden;
+  position:absolute;
+  top:5%;
+  left:50%;
+  transform:translateX(-50%);
+  box-shadow:0 0 80px rgba(255,255,255,0.2);
+}
+
+.frog-sky{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation:cloudMove 12s linear infinite;
+}
+
+@keyframes cloudMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-60px)}
+}
+
+.bird-fly{
+  position:absolute;
+  top:40%;
+  left:-100px;
+  font-size:60px;
+  transition:5s linear;
+  display:none;
+}
+
+.frog-tip,
+.bird-tip{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:42px;
+  font-weight:bold;
+  color:white;
+  background:rgba(0,0,0,0.5);
+  padding:20px 40px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.next-btn{
+  position:fixed;
+  right:30px;
+  top:30px;
+  background:#ff9800;
+  color:white;
+  text-decoration:none;
+  padding:20px 35px;
+  border-radius:20px;
+  font-size:30px;
+  font-weight:bold;
+}
+
+.back-btn{
+  position:fixed;
+  left:30px;
+  top:30px;
+  background:#95a5a6;
+  color:white;
+  text-decoration:none;
+  padding:20px 35px;
+  border-radius:20px;
+  font-size:30px;
+  font-weight:bold;
+}
+
+.bird-page{
+  background:#87ceeb;
+}
+
+.bird-world{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+.bird-panorama{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.floating-birds{
+  position:absolute;
+  top:10%;
+  left:10%;
+  font-size:60px;
+  animation:floatBird 5s linear infinite;
+}
+
+@keyframes floatBird{
+  from{transform:translateX(-50px)}
+  to{transform:translateX(1200px)}
+}
+
+.new-cloud{
+  position:fixed;
+  font-size:70px;
+  animation:fadeCloud 4s forwards;
+}
+
+@keyframes fadeCloud{
+  0%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(2)}
+}
+
+.compare-page{
+  background:linear-gradient(180deg, #eef5ff 0%, #b3e5fc 100%);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.compare-container{
+  width:95%;
+  max-width:1400px;
+  height:45vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+}
+
+.compare-left,
+.compare-right{
+  flex:1;
+  height:100%;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 50px rgba(0,0,0,0.18);
+}
+
+.compare-left img,
+.compare-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.question-btn{
+  width:120px;
+  height:120px;
+  background:linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:70px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 10px 40px rgba(255,152,0,0.45), 0 0 0 4px rgba(255,255,255,0.35) inset;
+  transition:all 0.3s ease;
+  animation:pulse 2.5s ease-in-out infinite;
+  border:3px solid rgba(255,255,255,0.5);
+  line-height:1;
+  text-align:center;
+  padding:0;
+  margin:0;
+}
+
+.question-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 20px 60px rgba(255,152,0,0.55), 0 0 0 8px rgba(255,255,255,0.4) inset;
+}
+
+@keyframes pulse{
+  0%,100%{
+    box-shadow:0 15px 50px rgba(255,152,0,0.45), 0 0 0 6px rgba(255,255,255,0.35) inset;
+    transform:scale(1);
+  }
+  50%{
+    box-shadow:0 22px 65px rgba(255,152,0,0.6), 0 0 0 8px rgba(255,255,255,0.45) inset;
+    transform:scale(1.05);
+  }
+}
+
+.quiz-panel{
+  padding:15px;
+  display:none;
+  text-align:center;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  margin-top:15px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+.quiz-panel h2{
+  margin:15px 0;
+  font-size:26px;
+  color:#2c3e50;
+}
+
+.option{
+  width:350px;
+  max-width:90vw;
+  height:60px;
+  margin:10px;
+  border:none;
+  border-radius:15px;
+  background:linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  box-shadow:0 6px 20px rgba(52,152,219,0.3);
+}
+
+.option:hover{
+  transform:scale(1.03);
+  box-shadow:0 8px 25px rgba(52,152,219,0.4);
+}
+
+.feedback{
+  margin-top:20px;
+  font-size:50px;
+  font-weight:bold;
+}
+
+.jump-page{
+  background:black;
+}
+
+.jump-scene{
+  width:100vw;
+  height:100vh;
+  position:relative;
+}
+
+.jump-bg,
+.world-bg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.jump-btn{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:200px;
+  height:200px;
+  border:none;
+  border-radius:50%;
+  background:red;
+  color:white;
+  font-size:80px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 50px rgba(255,0,0,0.8);
+}
+
+.jumping-big{
+  animation:superJump 1s ease-in-out;
+}
+
+@keyframes superJump{
+  0%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-200%) scale(1.4)}
+  100%{transform:translate(-50%,-50%) scale(1)}
+}
+
+.world-scene{
+  position:absolute;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.world-text{
+  position:absolute;
+  top:10%;
+  background:rgba(255,255,255,0.9);
+  padding:20px 50px;
+  border-radius:30px;
+  font-size:60px;
+  font-weight:bold;
+  color:#ff5722;
+  animation:popText 1s infinite alternate;
+}
+
+@keyframes popText{
+  from{transform:scale(1)}
+  to{transform:scale(1.1)}
+}
+
+@media(max-width:768px){
+
+  .main-title{
+    font-size:48px;
+  }
+
+  .view-btn{
+    width:180px;
+    height:80px;
+    font-size:28px;
+  }
+
+  .sky-hole{
+    width:260px;
+    height:260px;
+  }
+
+  .frog-tip,
+  .bird-tip{
+    width:90%;
+    font-size:24px;
+    text-align:center;
+  }
+
+  .compare-container{
+    height:50vh;
+    gap:15px;
+  }
+
+  .question-btn{
+    width:120px;
+    height:120px;
+    font-size:65px;
+  }
+
+  .quiz-panel h2{
+    font-size:28px;
+  }
+
+  .option{
+    font-size:24px;
+    height:65px;
+  }
+
+  .world-text{
+    font-size:34px;
+  }
+}

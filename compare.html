@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双视角对比</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/DeviceOrientationControls.js"></script>
+</head>
+<body class="compare-page">
+
+<div class="compare-container">
+
+  <div class="compare-left">
+    <img src="images/青蛙第一视角.png">
+  </div>
+
+  <div class="question-btn" id="questionBtn">
+    ？
+  </div>
+
+  <div class="compare-right">
+    <img src="images/小鸟眼中的天1.png">
+  </div>
+
+</div>
+
+<div class="quiz-panel" id="quizPanel">
+
+  <div id="question1">
+    <h2>小鸟和青蛙看到的天空一样吗？</h2>
+    <button class="option wrong" id="q1a">A. 一样</button>
+    <button class="option correct" id="q1b">B. 不一样</button>
+  </div>
+
+  <div id="question2" style="display:none;">
+    <h2>为什么它们看到的天不一样呢？</h2>
+    <button class="option wrong" id="q2a">A. 青蛙说谎了</button>
+    <button class="option correct" id="q2b">B. 它们站的地方不一样</button>
+  </div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <a href="jump.html" class="next-btn" id="nextBtn" style="display:none;">
+    进入拓展
+  </a>
+
+</div>
+
+<audio id="clap" src="audio/clap.mp3">
+<audio id="wrong" src="audio/wrong.mp3">
+
+<script>
+const qBtn = document.getElementById('questionBtn');
+const panel = document.getElementById('quizPanel');
+const question1 = document.getElementById('question1');
+const question2 = document.getElementById('question2');
+const feedback = document.getElementById('feedback');
+const nextBtn = document.getElementById('nextBtn');
+
+qBtn.onclick = () => {
+  panel.style.display = 'block';
+};
+
+document.getElementById('q1a').onclick = () => {
+  document.getElementById('wrong').play();
+  feedback.innerHTML = '再试试~';
+  feedback.style.color = '#ff9800';
+};
+
+document.getElementById('q1b').onclick = () => {
+  document.getElementById('clap').play();
+  feedback.innerHTML = '😊 回答正确！';
+  feedback.style.color = '#2ecc71';
+  
+  setTimeout(() => {
+    question1.style.display = 'none';
+    question2.style.display = 'block';
+    feedback.innerHTML = '';
+  }, 1500);
+};
+
+document.getElementById('q2a').onclick = () => {
+  document.getElementById('wrong').play();
+  feedback.innerHTML = '再试试~';
+  feedback.style.color = '#ff9800';
+};
+
+document.getElementById('q2b').onclick = () => {
+  document.getElementById('clap').play();
+  feedback.innerHTML = '🎉 太棒了！全部答对！';
+  feedback.style.color = '#2ecc71';
+  
+  setTimeout(() => {
+    nextBtn.style.display = 'inline-block';
+  }, 1000);
+};
+</script>
+
+</body>
+</html>

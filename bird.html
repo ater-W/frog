@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>小鸟视角 VR</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  
+  <style>
+    #vr-container {
+      width: 100%;
+      height: 100vh;
+    }
+    .pnlm-container {
+      background: #87CEEB !important;
+    }
+    .bird-tip {
+      font-size: 32px !important;
+      padding: 15px 30px !important;
+      max-width: 95vw !important;
+    }
+  </style>
+</head>
+<body class="bird-page">
+
+  <div id="vr-container"></div>
+
+  <a href="index.html" class="back-btn">
+    返回
+  </a>
+
+  <div class="bird-tip vr-tip">
+    小鸟在天上飞<br>看到的天无边无际，大得很哪！
+  </div>
+
+  <a href="compare.html" class="next-btn">
+    下一步
+  </a>
+
+  <script>
+    let viewer;
+
+    function initPanorama() {
+      viewer = pannellum.viewer('vr-container', {
+        type: 'equirectangular',
+        panorama: './images/Your.jpg',
+        autoLoad: true,
+        showControls: true,
+        mouseZoom: true,
+        hfov: 100,
+        compass: false,
+        hotSpots: [],
+        onLoad: function() {
+          console.log('全景图加载成功！');
+        },
+        onError: function(error) {
+          console.error('加载错误:', error);
+        }
+      });
+    }
+
+    window.onload = function() {
+      initPanorama();
+    };
+  </script>
+
+</body>
+</html>

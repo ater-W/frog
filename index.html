@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>坐井观天 VR体验教学</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/DeviceOrientationControls.js"></script>
+</head>
+<body class="home-page">
+
+<div class="home-bg"></div>
+
+<div class="home-container">
+  <h1 class="main-title">坐井观天</h1>
+
+  <div class="well-wrapper">
+    <img src="images/第三视角全景图.png" class="main-well" alt="井口">
+  </div>
+
+  <div class="button-group">
+    <button class="view-btn frog-btn" id="frogBtn">
+      青蛙视角
+    </button>
+
+    <button class="view-btn bird-btn" id="birdBtn">
+      小鸟视角
+    </button>
+  </div>
+</div>
+
+<audio id="frogAudio" src="Sound/frog.mp3"></audio>
+<audio id="birdAudio" src="Sound/bird.mp3"></audio>
+
+<script>
+const frogBtn = document.getElementById('frogBtn');
+const birdBtn = document.getElementById('birdBtn');
+
+frogBtn.onclick = () => {
+  document.getElementById('frogAudio').play();
+  frogBtn.classList.add('jumping');
+
+  setTimeout(()=>{
+    location.href = 'frog.html';
+  },1000)
+}
+
+birdBtn.onclick = () => {
+  document.getElementById('birdAudio').play();
+  birdBtn.classList.add('flying');
+
+  setTimeout(()=>{
+    location.href = 'bird.html';
+  },1000)
+}
+</script>
+
+</body>
+</html>
